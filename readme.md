@@ -23,10 +23,10 @@
 [Screenshot of Horizon Chasers UI](./output_screenshot.png)
 
 
-[Screenshot 1](./Screenshot1.png)  
-[Screenshot 2](./Screenshot2.png)  
-[Screenshot 3](./Screenshot3.png)  
-[Screenshot 4](./Screenshot4.png)  
+[About Us](./Screenshot1.png)  
+[Destination](./Screenshot2.png)  
+[Booking form](./Screenshot3.png)  
+[Contact Us](./Screenshot4.png)  
 
 ## Description
 ...

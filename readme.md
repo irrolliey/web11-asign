@@ -22,6 +22,16 @@
 
 [Screenshot of Horizon Chasers UI](./output_screenshot.png)
 
+
+![Screenshot 1](./Screenshot1.png)  
+![Screenshot 2](./Screenshot2.png)  
+![Screenshot 3](./Screenshot3.png)  
+![Screenshot 4](./Screenshot4.png)  
+
+## Description
+...
+
+
 ## Application Domain
 
 This UI is designed for travel agencies, tour companies, or bus transportation services that want to provide their customers with an intuitive platform to explore destinations and available transportation options. It's perfect for businesses that need a visually appealing and easy-to-navigate interface to showcase their travel services online.

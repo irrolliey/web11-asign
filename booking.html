@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - Horizon Chasers</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+        header, footer {
+            background-color: #02468b;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1, h2 {
+            margin: 10px 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        .wallet {
+            display: flex;
+            align-items: center;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .coin {
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            color: rgb(217, 185, 2);
+        }
+        .bus-price, .seats-available {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .seat {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            background-color: rgb(0, 0, 0);
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .seat.taken {
+            background-color: rgb(107, 107, 107);
+            cursor: not-allowed;
+        }
+        .seats-container {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .seat-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Book Your Trip</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="bus-images-section">
+                <h2>Our Buses</h2>
+                <div class="bus-gallery">
+                    <img src="path_to_your_image/luxury-bus.jpg" alt="Luxury Bus" />
+                    <img src="path_to_your_image/standard-bus.jpg" alt="Standard Bus" />
+                    <img src="path_to_your_image/economy-bus.jpg" alt="Economy Bus" />
+                </div>
+            </section>
+
+            <section class="booking-form-section">
+                <h2>Booking Details</h2>
+                <form class="booking-form" action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="departure">Departure:</label>
+                        <select id="departure" name="departure" required onchange="updateDestinations()">
+                            <option value="">Select your departure city</option>
+                            <option value="nairobi">Nairobi</option>
+                            <option value="eldoret">Eldoret</option>
+                            <option value="kisumu">Kisumu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="destination">Destination:</label>
+                        <select id="destination" name="destination" required>
+                            <option value="">Select your destination</option>
+                            <option value="eldoret">Eldoret</option>
+                            <option value="nairobi">Nairobi</option>
+                            <option value="kisumu">Kisumu</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="travel-date">Travel Date:</label>
+                        <input type="date" id="travel-date" name="travel-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="return-date">Return Date:</label>
+                        <input type="date" id="return-date" name="return-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="num-travelers">Number of Travelers:</label>
+                        <input type="number" id="num-travelers" name="num-travelers" min="1" placeholder="Enter number of travelers" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bus-option">Bus Option:</label>
+                        <select id="bus-option" name="bus-option" required onchange="updatePriceDisplay()">
+                            <option value="">Select a bus</option>
+                            <option value="luxury">Luxury Bus</option>
+                            <option value="standard">Standard Bus</option>
+                            <option value="economy">Economy Bus</option>
+                        </select>
+                    </div>
+
+                    <div class="bus-price" id="bus-price-display">Price: KSh 0</div>
+                    <div class="seats-available" id="seats-available-display">Available Seats: 0</div>
+
+                    <div class="wallet">
+                        <div class="coin" id="price">💰 KSh 0</div>
+                    </div>
+
+                    <div class="seats-container" id="seats-container"></div>
+
+                    <button type="submit" class="btn">Book Now</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2023 Horizon Chasers. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const busPrices = {
+            nairobi: {
+                eldoret: { luxury: { price: 1200, seats: 64 }, standard: { price: 800, seats: 32 }, economy: { price: 600, seats: 14 } },
+                kisumu: { luxury: { price: 1400, seats: 64 }, standard: { price: 900, seats: 32 }, economy: { price: 700, seats: 14 } }
+            },
+            eldoret: {
+                nairobi: { luxury: { price: 1200, seats: 64 }, standard: { price: 800, seats: 32 }, economy: { price: 600, seats: 14 } },
+                kisumu: { luxury: { price: 1000, seats: 64 }, standard: { price: 700, seats: 32 }, economy: { price: 500, seats: 14 } }
+            },
+            kisumu: {
+                nairobi: { luxury: { price: 1400, seats: 64 }, standard: { price: 900, seats: 32 }, economy: { price: 700, seats: 14 } },
+                eldoret: { luxury: { price: 1000, seats: 64 }, standard: { price: 700, seats: 32 }, economy: { price: 500, seats: 14 } }
+            }
+        };
+    
+        const seatStatus = {
+            luxury: Array(64).fill(false),
+            standard: Array(32).fill(false),
+            economy: Array(14).fill(false)
+        };
+    
+        let selectedSeats = [];
+    
+        function updateDestinations() {
+            const departure = document.getElementById('departure').value;
+            const destinationSelect = document.getElementById('destination');
+            destinationSelect.innerHTML = '<option value="">Select your destination</option>';
+    
+            const destinations = {
+                nairobi: ['eldoret', 'kisumu'],
+                eldoret: ['nairobi', 'kisumu'],
+                kisumu: ['nairobi', 'eldoret']
+            };
+    
+            destinations[departure].forEach(city => {
+                const option = document.createElement('option');
+                option.value = city;
+                option.textContent = city.charAt(0).toUpperCase() + city.slice(1);
+                destinationSelect.appendChild(option);
+            });
+    
+            resetBookingDetails();
+        }
+    
+        function resetBookingDetails() {
+            document.getElementById('price').textContent = '💰 KSh 0';
+            document.getElementById('bus-price-display').textContent = 'Price: KSh 0';
+            document.getElementById('seats-available-display').textContent = 'Available Seats: 0';
+            document.getElementById('seats-container').innerHTML = '';
+            selectedSeats = [];
+        }
+    
+        function updatePriceDisplay() {
+            const departure = document.getElementById('departure').value;
+            const destination = document.getElementById('destination').value;
+            const busOption = document.getElementById('bus-option').value;
+    
+            if (departure && destination && busOption) {
+                const price = busPrices[departure][destination][busOption].price;
+                const seats = busPrices[departure][destination][busOption].seats;
+    
+                document.getElementById('bus-price-display').textContent = `Price: KSh ${price}`;
+                document.getElementById('seats-available-display').textContent = `Available Seats: ${seats}`;
+                document.getElementById('price').textContent = `💰 KSh ${price}`;
+                displaySeats(busOption);
+            }
+        }
+    
+        function displaySeats(busOption) {
+            const seatsContainer = document.getElementById('seats-container');
+            seatsContainer.innerHTML = ''; // Clear previous seats
+    
+            const totalSeats = busPrices[document.getElementById('departure').value][document.getElementById('destination').value][busOption].seats;
+    
+            // Mark the driver's seat (index 0) as taken
+            seatStatus[busOption][0] = true;
+    
+            const seatArrangement = {
+                luxury: { rows: 16, seatsPerRow: 4 }, // 16 rows, 4 seats per row
+                standard: { rows: 8, seatsPerRow: 4 }, // 8 rows, 4 seats per row
+                economy: { rows: 7, seatsPerRow: 2 }    // 7 rows, 2 seats per row (14 total)
+            };
+    
+            const { rows, seatsPerRow } = seatArrangement[busOption];
+    
+            for (let row = 0; row < rows; row++) {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'seat-row';
+                
+                for (let seat = 0; seat < seatsPerRow; seat++) {
+                    const seatIndex = row * seatsPerRow + seat; // No need to adjust for driver's seat
+                    
+                    if (seatIndex < totalSeats) {
+                        const seatDiv = document.createElement('div');
+                        seatDiv.className = 'seat' + (seatStatus[busOption][seatIndex] ? ' taken' : '');
+                        seatDiv.textContent = seatIndex + 1; // Display seat number
+                        seatDiv.addEventListener('click', () => selectSeat(busOption, seatIndex));
+                        rowDiv.appendChild(seatDiv);
+                    }
+                }
+                
+                seatsContainer.appendChild(rowDiv);
+            }
+        }
+    
+        function selectSeat(busOption, seatIndex) {
+            const numTravelers = parseInt(document.getElementById('num-travelers').value) || 0;
+    
+            if (!seatStatus[busOption][seatIndex]) {
+                if (selectedSeats.length < numTravelers) {
+                    seatStatus[busOption][seatIndex] = true; // Mark seat as taken
+                    selectedSeats.push(seatIndex); // Add to selected seats
+                    const seat = document.querySelectorAll('.seat')[seatIndex];
+                    seat.classList.add('taken'); // Change style to indicate taken
+                    seat.removeEventListener('click', () => selectSeat(busOption, seatIndex)); // Remove click listener
+                    alert(`Seat ${seatIndex + 1} selected!`);
+                } else {
+                    alert(`You can only select up to ${numTravelers} seats.`);
+                }
+            } else {
+                alert('This seat is already taken!');
+            }
+        }
+    </script>
+    
+</body>
+</html>

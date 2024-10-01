@@ -1,0 +1,717 @@
+/* Global Styles */
+* {
+    
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000000; 
+    color: #ffffff; 
+    line-height: 1.7;
+}
+
+/* Header and Navigation Styling */
+header {
+    background: linear-gradient(135deg, #1f2eff, #000000,#000000); /* Deep gradient */
+    padding: 15px 0;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Align items */
+    align-items: center; /* Center items vertically */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Set a max width for better structure */
+    margin: 0 auto; /* Center the container */
+    padding: 0 30px; /* Increased padding */
+}
+
+h1 {
+    color: #bd99ff;
+    font-size: 10rem;
+    font-weight: 900; /* Increased boldness */
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7);
+    letter-spacing: 4px;
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+    line-height: 1;
+}
+
+
+
+/* Icon styles */
+header .icon {
+    width: 50px; /* Size for the icon */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 15px; /* Space between icon and text */
+    transition: transform 0.3s ease; /* Add transform for hover effect */
+}
+
+header .icon:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+nav {
+    position: relative; /* Ensure nav is positioned properly */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Space between nav items */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 700; /* Bolder font weight */
+    padding: 12px 20px;
+    border-radius: 25px; /* Pill-shaped buttons */
+    transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* For pseudo-element positioning */
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px; /* Underline height */
+    background: white; /* Underline color */
+    left: 50%;
+    bottom: -5px; /* Position under the link */
+    transition: width 0.4s ease, left 0.4s ease; /* Smooth transition */
+}
+
+nav ul li a:hover::after {
+    width: 100%; /* Full width on hover */
+    left: 0; /* Align to the left */
+}
+
+nav ul li a:hover {
+    background-color: rgb(0, 4, 255); /* Softer background on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+/* Main Content Styling */
+main {
+    margin-top: 40px;
+}
+
+section {
+    
+    background-color: rgb(0, 0, 0);
+    padding: 50px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+section h2 {
+    font-size: 2.2rem; /* Increased heading size */
+    margin-bottom: 15px;
+    color: #00796b;
+    border-bottom: 2px solid #000000; /* Underline for sections */
+    padding-bottom: 10px;
+}
+
+section p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Featured Destinations */
+.destination-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.destination-card {
+    flex: 1 1 calc(33.333% - 30px); /* Responsive sizing with space */
+    margin: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    background-color: #ffffff; /* White background for cards */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.destination-card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+}
+img{
+    width: 70%;
+    height: 50%;
+    border-radius: 5px;
+}
+.bus-grid{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.bus-card img{
+    width: 100%;
+    height: 50%;
+}
+.fleet-grid{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+.bus
+{
+    width: 30%;
+    height: 30%;
+}
+
+.destination-card img {
+    width: 100%;
+    height: 50%; /* Consistent image height */
+    object-fit: cover; /* Cover for image fitting */
+    transition: transform 0.4s ease;
+    border-radius: 5px;
+}
+
+.destination-card img:hover {
+    transform: scale(1.1); /* Image zoom effect */
+}
+
+.destination-info {/* Global Styles */
+    * {
+        
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        background-color: #000000; 
+        color: #ffffff; 
+        line-height: 1.7;
+    }
+    
+    /* Header and Navigation Styling */
+    header {
+        background: linear-gradient(135deg, #1f2eff, #000000,#000000); /* Deep gradient */
+        padding: 15px 0;
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+        position: relative;
+        display: flex; /* Flexbox for layout */
+        justify-content: space-between; /* Align items */
+        align-items: center; /* Center items vertically */
+    }
+    
+    header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px; /* Set a max width for better structure */
+        margin: 0 auto; /* Center the container */
+        padding: 0 30px; /* Increased padding */
+    }
+    
+    h1 {
+        color: #bd99ff;
+        font-size: 10rem;
+        font-weight: 900; /* Increased boldness */
+        text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.7);
+        letter-spacing: 4px;
+        text-align: center;
+        margin: 0;
+        padding: 20px 0;
+        line-height: 1;
+    }
+    
+    
+    
+    /* Icon styles */
+    header .icon {
+        width: 50px; /* Size for the icon */
+        height: auto; /* Maintain aspect ratio */
+        margin-right: 15px; /* Space between icon and text */
+        transition: transform 0.3s ease; /* Add transform for hover effect */
+    }
+    
+    header .icon:hover {
+        transform: scale(1.1); /* Slightly enlarge on hover */
+    }
+    
+    nav {
+        position: relative; /* Ensure nav is positioned properly */
+    }
+    
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 30px; /* Space between nav items */
+    }
+    
+    nav ul li a {
+        text-decoration: none;
+        color: #ffffff;
+        font-size: 1.2rem;
+        font-weight: 700; /* Bolder font weight */
+        padding: 12px 20px;
+        border-radius: 25px; /* Pill-shaped buttons */
+        transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative; /* For pseudo-element positioning */
+    }
+    
+    nav ul li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px; /* Underline height */
+        background: white; /* Underline color */
+        left: 50%;
+        bottom: -5px; /* Position under the link */
+        transition: width 0.4s ease, left 0.4s ease; /* Smooth transition */
+    }
+    
+    nav ul li a:hover::after {
+        width: 100%; /* Full width on hover */
+        left: 0; /* Align to the left */
+    }
+    
+    nav ul li a:hover {
+        background-color: rgb(0, 4, 255); /* Softer background on hover */
+        transform: translateY(-3px); /* Lift effect on hover */
+    }
+    
+    /* Main Content Styling */
+    main {
+        margin-top: 40px;
+    }
+    
+    section {
+        
+        background-color: rgb(0, 0, 0);
+        padding: 50px;
+        margin: 20px auto;
+        border-radius: 15px;
+        box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    section h2 {
+        font-size: 2.2rem; /* Increased heading size */
+        margin-bottom: 15px;
+        color: #00796b;
+        border-bottom: 2px solid #000000; /* Underline for sections */
+        padding-bottom: 10px;
+    }
+    
+    section p {
+        margin-bottom: 20px;
+        color: #555;
+    }
+    
+    /* Featured Destinations */
+    .destination-grid {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+    
+    .destination-card {
+        flex: 1 1 calc(33.333% - 30px); /* Responsive sizing with space */
+        margin: 15px;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+        background-color: #ffffff; /* White background for cards */
+        box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .destination-card:hover {
+        transform: translateY(-10px); /* Lift effect on hover */
+        box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    img{
+        width: 70%;
+        height: 50%;
+        border-radius: 5px;
+    }
+    .bus-grid{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+    .bus-card img{
+        width: 100%;
+        height: 50%;
+    }
+    .fleet-grid{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: 30px;
+    }
+    .bus
+    {
+        width: 30%;
+        height: 30%;
+    }
+    
+    .destination-card img {
+        width: 100%;
+        height: 50%; /* Consistent image height */
+        object-fit: cover; /* Cover for image fitting */
+        transition: transform 0.4s ease;
+        border-radius: 5px;
+    }
+    
+    .destination-card img:hover {
+        transform: scale(1.1); /* Image zoom effect */
+    }
+    
+    .destination-info {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .destination-info h3 {
+        font-size: 1.6rem;
+        margin: 10px 0;
+        color: #00796b;
+    }
+    
+    .destination-info p {
+        color: #555;
+    }
+    
+    /* Team Section Styling */
+    .team-section {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #f9f9f9;
+        border-radius: 15px;
+    }
+    
+    .team {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    
+    .team-member {
+        background-color: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+        width: calc(28.333% - 27px);
+        margin: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .team-member img {
+        width: 100%;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+    
+    .team-member h3 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+        color: #00796b;
+    }
+    
+    .team-member p {
+        color: #777;
+        font-size: 0.9rem;
+    }
+    
+    /* Form Group Styling */
+    .form-group {
+        margin-bottom: 25px; /* Increased spacing */
+    }
+    
+    /* Readonly Input Styling */
+    input[type="text"][readonly] {
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        padding: 10px;
+        color: #555;
+    }
+    
+    /* Buttons */
+    button, input[type="submit"] {
+        background-color: #009688; /* Updated color */
+        color: white;
+        border: none;
+        padding: 14px 30px; /* Increased padding for larger buttons */
+        border-radius: 25px; /* Pill shape */
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    
+    button:hover, input[type="submit"]:hover {
+        background-color: #00796b;
+        transform: translateY(-3px);
+    }
+    
+    /* Booking Form Styling */
+    form {
+        max-width: 700px; /* Wider form for better usability */
+        margin: 0 auto;
+    }
+    
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    
+    input, select, textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    
+    textarea {
+        height: 150px; /* Increased height for better UX */
+    }
+    
+    /* Footer Styling */
+    footer {
+        background: linear-gradient(135deg, #000000,#000000 , #1f2eff);
+        color: white;
+        text-align: center;
+        padding: 25px 0;
+    }
+    
+    footer p {
+        margin: 0;
+    }
+  
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .team {
+            flex-direction: column;
+            align-items: center; /* Center team members on smaller screens */
+        }
+    
+        .team-member {
+            width: 80%; /* Full width for smaller screens */
+            margin: 20px auto;
+        }
+    
+        .destination-card {
+            flex: 1 1 100%; /* Full width for destination cards */
+            margin-bottom: 20px;
+        }
+    
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        nav ul li {
+            margin: 10px 0;
+        }
+    
+        h1 {
+            font-size: 2rem; /* Responsive font size for header */
+        }
+    
+        section h2 {
+            font-size: 1.8rem; /* Responsive font size for section headers */
+        }
+        .seat {
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+        }
+    }
+    
+    padding: 20px;
+    text-align: center;
+}
+
+.destination-info h3 {
+    font-size: 1.6rem;
+    margin: 10px 0;
+    color: #00796b;
+}
+
+.destination-info p {
+    color: #555;
+}
+
+/* Team Section Styling */
+.team-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+    border-radius: 15px;
+}
+
+.team {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    width: calc(28.333% - 27px);
+    margin: 15px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+    width: 100%;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+    color: #00796b;
+}
+
+.team-member p {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Form Group Styling */
+.form-group {
+    margin-bottom: 25px; /* Increased spacing */
+}
+
+/* Readonly Input Styling */
+input[type="text"][readonly] {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #555;
+}
+
+/* Buttons */
+button, input[type="submit"] {
+    background-color: #009688; /* Updated color */
+    color: white;
+    border: none;
+    padding: 14px 30px; /* Increased padding for larger buttons */
+    border-radius: 25px; /* Pill shape */
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #00796b;
+    transform: translateY(-3px);
+}
+
+/* Booking Form Styling */
+form {
+    max-width: 700px; /* Wider form for better usability */
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+textarea {
+    height: 150px; /* Increased height for better UX */
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(135deg, #000000,#000000 , #1f2eff);
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .team {
+        flex-direction: column;
+        align-items: center; /* Center team members on smaller screens */
+    }
+
+    .team-member {
+        width: 80%; /* Full width for smaller screens */
+        margin: 20px auto;
+    }
+
+    .destination-card {
+        flex: 1 1 100%; /* Full width for destination cards */
+        margin-bottom: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    h1 {
+        font-size: 2rem; /* Responsive font size for header */
+    }
+
+    section h2 {
+        font-size: 1.8rem; /* Responsive font size for section headers */
+    }
+}
